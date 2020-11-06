@@ -1,2 +1,2 @@
 # HtmlCSSJavascript
-learning for html+css+javascript
+>learning for html+css+javascript
