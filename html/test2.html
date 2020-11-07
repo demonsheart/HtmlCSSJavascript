@@ -1,50 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>test</title>
     <style type="text/css">
-      h1 {
-        color: red;
-      }
-
-      p {
-        color: blue;
-      }
+        h1 {
+            color: red;
+        }
+        
+        p {
+            color: blue;
+        }
     </style>
     <base href="https://www.runoob.com/try/demo_source/" />
-  </head>
+</head>
 
-  <body style="background-color: bisque">
+<body style="background-color: bisque">
     <h1>这是一个标题</h1>
     <p>这是一个段落。</p>
-    <img
-      src="planets.gif"
-      width="145"
-      height="126"
-      alt="Planets"
-      usemap="#planetmap"
-    />
+    <img src="planets.gif" width="145" height="126" alt="Planets" usemap="#planetmap" />
 
     <map name="planetmap">
-      <area shape="rect" coords="0,0,82,126" alt="Sun" href="sun.htm" />
-      <area shape="circle" coords="90,58,3" alt="Mercury" href="mercur.htm" />
-      <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm" />
+        <area shape="rect" coords="0,0,82,126" alt="Sun" href="sun.htm" />
+        <area shape="circle" coords="90,58,3" alt="Mercury" href="mercur.htm" />
+        <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm" />
     </map>
 
-    <table border="1">
-      <tr>
-        <th>header 1</th>
-        <th>header 2</th>
-      </tr>
-      <tr>
-        <td>ssr</td>
-        <td>ssr</td>
-      </tr>
-      <tr>
-        <td>ssr</td>
-        <td>ssr</td>
-      </tr>
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>header 1</th>
+            <th>header 2</th>
+        </tr>
+        <tr>
+            <td>ssr</td>
+            <td>ssr</td>
+        </tr>
+        <tr>
+            <td>ssr</td>
+            <td>ssr</td>
+        </tr>
     </table>
-  </body>
+
+    <hr>
+    <table border="1" cellpadding="20" cellspacing="0">
+        <caption>Human</caption>
+        <tr>
+            <th>Name</th>
+            <td>John</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>59</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>America</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Tel</th>
+            <td>7758258</td>
+        </tr>
+        <tr>
+            <td>7758257</td>
+        </tr>
+    </table>
+
+    <ul style="list-style-type: square;">
+        <li>s1</li>
+        <li>s2</li>
+        <li>s3
+            <ul style="list-style-type: circle;">
+                <li>s3.r</li>
+                <li>s3.rr</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ol type="i">
+        <li>s1</li>
+        <li>s2</li>
+    </ol>
+
+</body>
+
 </html>
