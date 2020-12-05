@@ -18,24 +18,19 @@
 <body>
     <canvas id="mycanv" width="800" height="800"></canvas>
     <script>
+        /**
+         * UI
+         * @author C1101
+         */
+
+
         //获取绘画接口
         var canv = document.getElementById('mycanv');
         var ctx = canv.getContext('2d');
         var over = false;
 
-        //绘制棋盘 15 * 15
-        for (let i = 1; i <= 15; ++i) {
-            //竖线
-            ctx.beginPath();
-            ctx.moveTo(50 * i, 50);
-            ctx.lineTo(50 * i, 750);
-            ctx.stroke();
-            //横线
-            ctx.beginPath();
-            ctx.moveTo(50, 50 * i);
-            ctx.lineTo(750, 50 * i);
-            ctx.stroke();
-        }
+        //绘制棋盘
+        createChess();
 
         //初始化游戏基础信息
         var fiveChess = [{
@@ -48,15 +43,6 @@
         var chess = 0; //当前棋手
         var chess_rec = []; //游戏坐标记录
 
-        //画棋子
-        function setChess(x, y, color) {
-            ctx.save();
-            ctx.beginPath();
-            ctx.fillStyle = color;
-            ctx.arc(x, y, 25, 0, 2 * Math.PI);
-            ctx.fill();
-            ctx.restore();
-        }
 
         //向画布添加点击事件(DOM事件)
         canv.addEventListener('click', function(ev) {
@@ -80,7 +66,44 @@
         })
 
 
-        //九连
+        /**
+         * 绘制棋盘 15 * 15
+         */
+        function createChess() {
+            for (let i = 1; i <= 15; ++i) {
+                //竖线
+                ctx.beginPath();
+                ctx.moveTo(50 * i, 50);
+                ctx.lineTo(50 * i, 750);
+                ctx.stroke();
+                //横线
+                ctx.beginPath();
+                ctx.moveTo(50, 50 * i);
+                ctx.lineTo(750, 50 * i);
+                ctx.stroke();
+            }
+        }
+
+        /**
+         * 绘制棋子
+         * @param x     棋子x轴位置
+         * @param y     棋子y轴位置
+         * @param color    棋子颜色
+         */
+        function setChess(x, y, color) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.arc(x, y, 25, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        /**
+         * 九连数组
+         * @param x     棋子x轴位置
+         * @param y     棋子y轴位置
+         */
         function getwins_9(x, y) {
             var wins = [
                 [],
@@ -109,7 +132,11 @@
             return wins.filter(arr => arr.length >= 5);
         }
 
-        //九连分割成五连 赢法数组
+        /**
+         * 五连数组 通过九连数组分割
+         * @param x     棋子x轴位置
+         * @param y     棋子y轴位置
+         */
         function getwins_5(x, y) {
             var wins = [];
             //遍历分割即可
@@ -122,7 +149,12 @@
             return wins;
         }
 
-        //判断输赢
+        /**
+         * 判断输赢
+         * @param x     棋子x轴位置
+         * @param y     棋子y轴位置
+         * @param chess 棋手
+         */
         function checkOver(x, y, chess) {
             //array.filter(function(currentValue,index,arr), thisValue)
             let chs = chess_rec.filter((n, i) => i % 2 == chess);
